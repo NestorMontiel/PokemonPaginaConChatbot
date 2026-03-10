@@ -1,0 +1,37 @@
+BASE DE CONOCIMIENTO (KNOWLEDGE BASE) - CHATBOT
+TEMA: Landing Page Fan-Made "Pokémon Rojo Fuego: La Guía Definitiva"
+
+Esta página web de una sola página (Single Page Application - SPA) está diseñada para ofrecer una experiencia interactiva e informativa sobre el videojuego clásico Pokémon Rojo Fuego.
+
+--- CÓMO FUNCIONA LA PÁGINA (ESTRUCTURA GENERAL) ---
+La página es una SPA que permite navegar verticalmente haciendo scroll o haciendo clic en los enlaces del menú superior (Header). Está dividida en 4 secciones funcionales clave, además del encabezado y el pie de página. El diseño es responsive, adaptándose a computadoras y dispositivos móviles.
+
+--- FUNCIONALIDADES POR SECCIÓN ---
+
+1. HEADER Y NAVEGACIÓN (Navbar):
+   - Ubicado en la parte superior, se mantiene fijo (sticky) al hacer scroll.
+   - Contiene el logo "PokéGuía Rojo Fuego".
+   - Contiene 3 enlaces ancla que dirigen suavemente (smooth scroll) a las secciones principales: "Iniciales", "Mapa Misiones" y "Guía Rápida".
+
+2. SECCIÓN HERO (Inicio):
+   - Muestra el título principal "Pokémon Rojo Fuego: La Guía Definitiva" con estética retro pixelada y fondo oscuro texturizado.
+   - Contiene un botón "Explorar Kanto" que, al hacer clic, desplaza al usuario hacia la siguiente sección ("Elige tu Compañero").
+
+3. SECCIÓN "ELIGE TU COMPAÑERO" (Estadísticas de Iniciales):
+   - Muestra 3 tarjetas interactivas correspondientes a los Pokémon iniciales de Kanto: Bulbasaur (Planta), Charmander (Fuego) y Squirtle (Agua).
+   - Interactividad Visual (Hover): Al pasar el cursor sobre una tarjeta, esta se eleva suavemente, la imagen del Pokémon se agranda (zoom) y los bordes/sombras se iluminan con el color representativo del tipo del Pokémon (verde, naranja o azul).
+   - Interactividad de Datos (Animación de Barras): Muestra los stats base (HP, Ataque, Defensa) usando barras de progreso. Estas barras están programadas (vía IntersectionObserver en JS) para llenarse de forma animada (crecen desde 0 hasta su valor real) únicamente en el momento en que el usuario hace scroll hacia esta sección, optimizando el rendimiento.
+
+4. SECCIÓN "EXPLORANDO KANTO" (Mapa / Simulador Interactivo):
+   - Simula la interfaz de una consola Game Boy Advance (GBA). Está dividida en dos partes: "Rutas Principales" (barra lateral izquierda) y "Pantalla" (lado derecho).
+   - Rutas Principales: Una lista deubicaciones clickeables (Pueblo Paleta, Ciudad Verde, Ciudad Plateada, Ciudad Azulona, Meseta Añil).
+   - Interactividad del Simulador (Typing Effect): Cuando el usuario hace clic en una ubicación de la barra lateral, la "Pantalla" estilo Game Boy (fondo verde, letra oscura) muestra una descripción detallada de esa ubicación. El texto no aparece de golpe, sino que se revela letra por letra, emulando el efecto de "máquina de escribir" nostálgico de los diálogos de los juegos de Pokémon clásicos. El botón activo cambia a color rojo.
+
+5. SECCIÓN "MISIONES CLAVE" (Guía en Acordeón):
+   - Presenta una lista de 4 misiones cruciales ("Elegir al Pokémon Inicial", "Derrotar a Brock", "Conseguir la MO Corte", "Derrotar a Giovanni y la Liga Pokémon").
+   - Interactividad de Acordeón: Los elementos se muestran inicialmente colapsados, enseñando sólo el título de la misión y un ícono "+". Al hacer clic en una misión, el panel se despliega hacia abajo mostrando el texto descriptivo y el ícono cambia a "-". Simultáneamente, si otro panel estaba abierto, este se cierra de forma automática para mantener limpia la lectura. Funciona como un componente "Accordion" clásico.
+
+--- RESUMEN TÉCNICO PARA EL CHATBOT ---
+- La página usa HTML5, CSS3 y Vanilla JavaScript (sin librerías como React o jQuery).
+- Estilo: "Modern-Retro" (colores rojos, naranjas, grises; fuentes pixeladas de Google Fonts).
+- El JavaScript controla 3 comportamientos clave: (1) Las animaciones al hacer scroll de las barras de estadísticas (IntersectionObserver), (2) El simulador de texto letra por letra del mapa de Kanto (setInterval), (3) El funcionamiento expandir/colapsar de la guía de misiones.
